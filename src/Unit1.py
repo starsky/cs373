@@ -13,5 +13,6 @@ def sense(p, Z):#Define a function sense return q
     for i in range(len(world)):
         hitted = Z == world[i]
         q.append(p[i] * ((hitted * pHit) + (1-hitted)*pMiss))
-    return q
+        s = sum(q)
+    return [e/s for e in q]
 print sense(p, Z)
