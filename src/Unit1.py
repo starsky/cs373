@@ -16,7 +16,14 @@ def sense(p, Z):#Define a function sense return q
         s = sum(q)
     return [e/s for e in q]
 
+def move(p,U):
+    q = []
+    for i in range(len(p)):
+        q.append(p[(i-U) % len(p)])
+    return q
+
 for Z in measurement:   
     p = sense(p, Z)
     
+p = move(p,-1)    
 print p
