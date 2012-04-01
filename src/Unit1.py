@@ -3,7 +3,7 @@ p = [0.2, 0.2, 0.2, 0.2, 0.2]
 #World`s map
 world = ['green', 'red', 'red', 'green', 'green']
 #Measurement
-Z = 'red'
+measurement = ['red','green']
 #Probability of sensnig state and being in that state
 pHit = 0.6
 #Probablity of sensing state and being in other state
@@ -15,4 +15,8 @@ def sense(p, Z):#Define a function sense return q
         q.append(p[i] * ((hitted * pHit) + (1-hitted)*pMiss))
         s = sum(q)
     return [e/s for e in q]
-print sense(p, Z)
+
+for Z in measurement:   
+    p = sense(p, Z)
+    
+print p
